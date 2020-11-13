@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <!--Font Awesome Link-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <!--CSS-->
     <link rel="stylesheet" href="assets/weather.css" />
     <!--Title-->
@@ -22,14 +25,71 @@
     </div>
 
     <!--Container-->
-    <div class ='container-fluid'>
+    <div class='container-fluid'>
+        <!--One Main Row w/ two columns, second column has three rows (5 Day Forecast acts as row I believe)rows.-->
+        <div class='row'>
+            <!--First Column Start: City Search Form-->
+            <div class='col-3 bg-light py-2'>
+                <h6>Search for a City:</h6>
+                <div class='input-group'>
+                    <input class='form-control' id='searchCity' type='text' placeholder='Enter City Name'>
+                    <button class='btn btn-danger input-group-addon2' id='searchBtn' type='button'><i
+                            class="fas fa-search"></i></button>
+                </div>
+                <!--Card for Search Results, dynamically populate <li>'s with JS-->
+                <br>
+                <div class='card-title'>
+                    <h6>Search History:</h6>
+                </div>
+                <div class='card' id='searchHistory'>
+                    <ul class='list-group list-group-flush list' id='recentCity'>
+                    </ul>
+                </div>
+            </div>
+            <!--First Column End-->
+            <!--Second Column Start: Current City's Weather + 5 day forecast-->
+            <div class='col-9 py-2'>
+                <!--First Sub Row Start-->
+                <div class='row mx-3'>
+                    <div class='card col'>
+                        <div class='card-title'>
+                            <h2 id='cityDisplay'>Current City, 11/13/2020, Weather Icon</h2>
+                        </div>
+                        <div class='card-body'>
+                            <div class='currentCity'>
+                                <p class="currentTemp">Temperature:</p>
+                                <p class="currentHumidity">Humidity:</p>
+                                <p class="currentWind">Wind Speed:</p>
+                                <p class="currentUV">UV Index:</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--First Sub Row End-->
+                <br>
+                <!--5 Day Forecast Card Deck-->
+                <div class ='row mx-3'>
+                    <h2>5 Day Forecast:</h2>
+                </div>
+                <div class='row mx-3'>
+                    <div class ='card-deck'>
+                        <div class = 'card col-2 bg-primary'></div>
+                        <div class = 'card col-2 bg-primary'></div>
+                        <div class = 'card col-2 bg-primary'></div>
+                        <div class = 'card col-2 bg-primary'></div>
+                        <div class = 'card col-2 bg-primary'></div>
+                    </div>
+                </div>
+                <!--Second Sub Row End-->
 
 
 
-
-        
+            </div>
+            <!--Second Column End-->
+        </div>
+        <!--Main Row End-->
     </div>
-
+    <!--Container End-->
 
 
     <!--jQuery Link-->
