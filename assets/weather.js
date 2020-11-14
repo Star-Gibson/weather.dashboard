@@ -34,7 +34,7 @@ function Retrieve() {
             console.log(response);
             var temperature = Math.floor(((response.main.temp) - 273.15) * 1.8 + 32)
 
-            cityDisplay.text(response.name + ' - ' + moment().format("MM/Do/YYYY") + ' icon')
+            cityDisplay.text(response.name + ' - ' + moment().format("MM/Do/YYYY") + ' - ' + response.weather[0].icon)
             currentTemp.text("Temperature: " + temperature + "℉")
             currentHumidity.text("Humidity: " + response.main.humidity + "%")
             currentWind.text("Wind speed: " + response.wind.speed + " mph")
@@ -71,7 +71,7 @@ function fiveDayRetrieve() {
                     document.querySelector("#cards").innerHTML +=
                         `<div class = 'card col-2 bg-primary'>
                     <div class="card-body">
-                    <h3 class="card-title date1"><small>Date: ${position.dt_txt}</small></h3>
+                    <h3 class="card-title date1"><small>Date:  ${position.dt_txt}</small></h3>
                     <p><img class ='miniWeather1'><small>Icon: <img src = "http://openweathermap.org/img/w/${position.weather[0].icon}.png"/></small></p>
                     <p class="card-text temp1"><small>Temp: ${Math.floor(((position.main.temp) - 273.15) * 1.8 + 32) + "℉"}</small></p>
                     <p class="card-text humidity1"><small>Humidity: ${position.main.humidity + "%"}</small></p>
