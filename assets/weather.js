@@ -72,7 +72,7 @@ function fiveDayRetrieve() {
                     `<div class = 'card col-2 bg-primary'>
                     <div class="card-body">
                     <h3 class="card-title date1"><small>Date: moment(${position.dt}).calendar()</small></h3>
-                    <p><img class ='miniWeather1'><small>Icon: <img src = "http://openweathermap.org/img/w/${position.weather[0].icon}"/></small></p>
+                    <p><img class ='miniWeather1'><small>Icon: <img src = "http://openweathermap.org/img/w/${position.weather[0].icon}.png"/></small></p>
                     <p class="card-text temp1"><small>Temp: ${Math.floor(((position.temp.day) - 273.15) * 1.8 + 32)}</small></p>
                     <p class="card-text humidity1"><small>Humidity: ${position.humidity}</small></p>
                     </div>
