@@ -61,25 +61,26 @@ function fiveDayRetrieve() {
         .then(function (response) {
             console.log(response);
             $.ajax({
-                url:`https://api.openweathermap.org/data/2.5/onecall?lat=${response.coord.lat}&lon=${response.coord.lon}&exclude=hourly,minutely&appid=${APIkey}`
-                
-            }).then(function(response_two){
+                url:`https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=${APIkey}`,
+
+            }).then(function (response_two) {
                 console.log(response_two);
-                for(i=0;i<5;i++){
-                    var position = response_two.daily[i];
-                    
-                    document.querySelector("#cards").innerHTML+=
-                    `<div class = 'card col-2 bg-primary'>
+                for (i = 0; i < 5; i++) {
+                    var position = response_two.list[i];
+
+                    document.querySelector("#cards").innerHTML +=
+                        `<div class = 'card col-2 bg-primary'>
                     <div class="card-body">
-                    <h3 class="card-title date1"><small>Date: moment(${position.dt}).calendar()</small></h3>
+                    <h3 class="card-title date1"><small>Date: ${position.dt_txt}</small></h3>
                     <p><img class ='miniWeather1'><small>Icon: <img src = "http://openweathermap.org/img/w/${position.weather[0].icon}.png"/></small></p>
-                    <p class="card-text temp1"><small>Temp: ${Math.floor(((position.temp.day) - 273.15) * 1.8 + 32)}</small></p>
-                    <p class="card-text humidity1"><small>Humidity: ${position.humidity}</small></p>
+                    <p class="card-text temp1"><small>Temp: ${Math.floor(((position.main.temp) - 273.15) * 1.8 + 32) + "℉"}</small></p>
+                    <p class="card-text humidity1"><small>Humidity: ${position.main.humidity + "%"}</small></p>
                     </div>
                     </div>`
                 }
-            })
+            });
+
+
+
         });
 }
-
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
