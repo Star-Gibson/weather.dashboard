@@ -33,8 +33,8 @@ function Retrieve() {
         .then(function (response) {
             console.log(response);
             var temperature = Math.floor(((response.main.temp) - 273.15) * 1.8 + 32)
-
-            cityDisplay.text(response.name + ' - ' + moment().format("MM/Do/YYYY") + ' - ' + response.weather[0].icon)
+            
+            cityDisplay.text(response.name + ' - ' + moment().format("MM/Do/YYYY") + ' - ' +  '<img src=' + '"' + 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png' + '"' +'>')
             currentTemp.text("Temperature: " + temperature + "℉")
             currentHumidity.text("Humidity: " + response.main.humidity + "%")
             currentWind.text("Wind speed: " + response.wind.speed + " mph")
@@ -79,8 +79,6 @@ function fiveDayRetrieve() {
                     </div>`
                 }
             });
-
-
 
         });
 }
