@@ -13,7 +13,7 @@ var storedCities = JSON.parse(localStorage.getItem("weatherCities")) || [];
 
 //Variables for APIkey and queryURL
 var APIkey = '73d970a47a40b0d93cf860e762bf7aee';
-var queryURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=' + APIkey;
+var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + searchCity + '&appid=' + APIkey;
 
 //Current Weather Data
 function Retrieve() {
@@ -24,7 +24,7 @@ function Retrieve() {
     localStorage.getItem("weatherCities", JSON.stringify(storedCities));
     //Variables for APIkey and queryURL: Initial Call
     var APIkey = "73d970a47a40b0d93cf860e762bf7aee";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIkey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIkey;
 
     $.ajax({
         url: queryURL,
@@ -53,7 +53,7 @@ function fiveDayRetrieve() {
     searchCity = $("#searchCity").val().split(' ').join('+')
     //Variables for APIkey and queryURL: Initial Call
     var APIkey = "73d970a47a40b0d93cf860e762bf7aee";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIkey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIkey;
     $.ajax({
         url: queryURL,
         method: "GET"
